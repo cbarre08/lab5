@@ -1,27 +1,6 @@
 #include "myheaders.h"
 
 
-// Mergesort - recursively divides input array until we get sub-arrays of size 1
-
-void	mergesort(long data[], long first, long last) {
-
-			if (first < last) {  // i.e. array is of size 2 or larger
-
-				long	mid;
-				
-				mid = (first + last)/2;
-				
-				mergesort(data, first, mid);
-				mergesort(data, mid+1, last);
-				
-				merge(data, first, last);
-
-			}
-	
-			return;
-}
-
-
 
 // Merge - merges left and right sub-arrays of the input array, in order
 
@@ -55,3 +34,25 @@ void	merge(long d[], long first, long last) {
 	
 		return;
 }
+
+// Mergesort - recursively divides input array until we get sub-arrays of size 1
+
+void	mergesort(long data[], long first, long last) {
+
+			if (first < last) {  // i.e. array is of size 2 or larger
+
+				long	mid;
+
+				mid = (first + last)/2;
+
+				mergesort(data, first, mid);
+				mergesort(data, mid+1, last);
+
+				merge(data, first, last);
+
+			}
+
+			return;
+}
+
+
