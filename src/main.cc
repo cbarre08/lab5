@@ -55,7 +55,8 @@ int main() {
 
 
 			
-					end_time = clock();		// end cpu timer
+					end_time = clock();
+					// end cpu timer
 
 					cpu_time_used = (end_time - begin_time) / CLOCKS_PER_SEC;
 					cout << endl << "BubbleSort ran for " << cpu_time_used << " secs.";
