@@ -1,45 +1,44 @@
-// Copyright (C) 2016 Sarvesh Kulkarni <sarvesh.kulkarni@villanova.edu>
-// If you are a student in the ECE 2161 lab, you may use this code.
-// Permission is NOT granted to use this code for non-educational purposes.
-// Write code for bubble sort and merge sort and call the functions in main.
-
-// WARNING! WARNING! WARNING!
-//  This program declares *very* large arrays. If you have not increased your
-//  stack space, expect a segmentation fault. In order to increase your
-//  stack space, run the following command from your terminal:
-//  ulimit -s 819200
-
 #include <iostream>
 #include <vector>
-#include "myheaders.h"
+#include <utility>
 
-using namespace std;
+// Rearranges elements around the pivot and returns its final index
+int partition(std::vector<int>& arr, int low, int high) {
+    int pivot = arr[high]; // Choose the last element as pivot
+    int i = low - 1;       // Index of the smaller element boundary
 
-template<class T>
-void insertionsort(T data[], int n){
-	for (int i = 1, j; i < n; i++){
-		T tmp = data[i];
+    for (int j = low; j < high; j++) {
+        // Move elements smaller than the pivot to the left side
+        if (arr[j] < pivot) {
+            i++;
+            std::swap(arr[i], arr[j]);
+        }
+    }
+    // Place the pivot in its correct sorted position
+    std::swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
 
-		for(j=i; j > 0 && tmp < data[j-1]; j--){
-			data[j] = data[j-1];
-		}
+// Recursively sorts subarrays before and after the partition
+void quickSort(std::vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
 
-		data[j] = tmp;
-	}
-
+        quickSort(arr, low, pi - 1);  // Sort left subarray
+        quickSort(arr, pi + 1, high); // Sort right subarray
+    }
 }
 
 int main() {
-	int array[] = {5, 3, 8, 1, 2};
-	int n = size(array);
+    std::vector<int> data = {10, 7, 8, 9, 1, 5};
 
-	insertionsort(array,n);
-	
-	for (int i = 0; i < n; i++){
-		cout << array[i] << " ";
-	}
-	
-	
-	return 0;
+    quickSort(data, 0, data.size() - 1);
+
+    std::cout << "Sorted array: ";
+    for (int num : data) {
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
 }
-

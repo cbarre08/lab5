@@ -34,12 +34,12 @@ int main() {
 	int n = size(array);
 
 	insertionsort(array,n);
-	
+
 	for (int i = 0; i < n; i++){
 		cout << array[i] << " ";
 	}
-	
-	
+
+
 	return 0;
 }
 
