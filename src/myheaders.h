@@ -3,6 +3,8 @@
 
 #include <string>
 #include <unistd.h>
+#include <vector>
+#include <utility>
 #define MAXSIZE	 2100000
 
 using namespace std;
@@ -12,3 +14,13 @@ void	printarray(long data[], long size);
 int		readfile(string infilename, long data[]);
 int		writefile(long data[], long size, string outfilename);
 void	swap(long& x, long& y);
+
+//Dallas
+void bubblesort(long data[], long sz);
+void mergesort(long d[], long first, long last);
+
+//Colin
+void insertionsort(long data[], long size);
+void quickSort(long arr[], int low, int high);
+
+
