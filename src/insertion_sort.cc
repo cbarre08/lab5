@@ -10,15 +10,14 @@
 //  ulimit -s 819200
 
 #include <iostream>
-#include <vector>
 #include "myheaders.h"
 
 using namespace std;
 
-template<class T>
-void insertionsort(T data[], int n){
+
+void insertionsort(long data[], int n){
 	for (int i = 1, j; i < n; i++){
-		T tmp = data[i];
+		long tmp = data[i];
 
 		for(j=i; j > 0 && tmp < data[j-1]; j--){
 			data[j] = data[j-1];
@@ -27,19 +26,5 @@ void insertionsort(T data[], int n){
 		data[j] = tmp;
 	}
 
-}
-
-int main() {
-	int array[] = {5, 3, 8, 1, 2};
-	int n = size(array);
-
-	insertionsort(array,n);
-
-	for (int i = 0; i < n; i++){
-		cout << array[i] << " ";
-	}
-
-
-	return 0;
 }
 
