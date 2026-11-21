@@ -1,10 +1,10 @@
-#Lab 5: Sorting Algorithms
+# Lab 5: Sorting Algorithms
 
-##Authors
+## Authors
 - Dallas Hanson-Richart
 - Colin Barrett
 
-##Description
+## Description
 This program reads integer data from an input file and demonstrates the use of multiple sorting algorithms.
 
 The implemented sorting algorithms are:
@@ -12,5 +12,3 @@ The implemented sorting algorithms are:
 - Merge Sort (Dallas)
 - Insertion Sort (Colin)
 - Quick Sort (Colin)
-
-- 
